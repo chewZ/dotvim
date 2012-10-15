@@ -12,8 +12,8 @@ setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=#%s
+setlocal comments=:#
+setlocal commentstring=#\ %s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -29,8 +29,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal noexpandtab
-if &filetype != 'sh'
-setlocal filetype=sh
+if &filetype != 'zsh'
+setlocal filetype=zsh
 endif
 setlocal foldcolumn=0
 setlocal foldenable
@@ -43,7 +43,7 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=tcq
+setlocal formatoptions=croql
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal grepprg=
 setlocal iminsert=0
@@ -53,7 +53,7 @@ setlocal includeexpr=
 setlocal indentexpr=GetShIndent()
 setlocal indentkeys=0{,0},!^F,o,O,e,0=then,0=do,0=else,0=elif,0=fi,0=esac,0=done,),0=;;,0=;&,0=fin,0=fil,0=fip,0=fir,0=fix
 setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255,.
+setlocal iskeyword=@,48-57,_,192-255,-
 setlocal keywordprg=
 setlocal nolinebreak
 setlocal nolisp
@@ -87,11 +87,11 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'sh'
-setlocal syntax=sh
+if &syntax != 'zsh'
+setlocal syntax=zsh
 endif
 setlocal tabstop=2
-setlocal tags=~/Archivio/Sviluppo/iptc2xml/.git/sh.tags,~/Archivio/Sviluppo/iptc2xml/.git/tags,./tags,./TAGS,tags,TAGS
+setlocal tags=
 setlocal textwidth=0
 setlocal thesaurus=
 setlocal undofile
@@ -100,23 +100,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-4,143fold
-146,149fold
-163,168fold
-183,183fold
-180,183fold
-163
-normal zo
-180
-normal zo
-183
-normal zo
-let s:l = 185 - ((41 * winheight(0) + 27) / 55)
+let s:l = 2 - ((1 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-185
-normal! 0
+2
+normal! 032l
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

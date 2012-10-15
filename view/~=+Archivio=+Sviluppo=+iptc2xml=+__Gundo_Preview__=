@@ -4,16 +4,16 @@ setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
 setlocal nobinary
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
+setlocal bufhidden=hide
+setlocal nobuflisted
+setlocal buftype=nofile
 setlocal nocindent
 setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
 setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=#%s
+setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -29,16 +29,16 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal noexpandtab
-if &filetype != 'sh'
-setlocal filetype=sh
+if &filetype != 'diff'
+setlocal filetype=diff
 endif
 setlocal foldcolumn=0
 setlocal foldenable
 setlocal foldexpr=0
 setlocal foldignore=#
-setlocal foldlevel=0
+setlocal foldlevel=20
 setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
+setlocal foldmethod=diff
 setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
@@ -61,7 +61,7 @@ setlocal nolist
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
 setlocal nomodeline
-setlocal modifiable
+setlocal nomodifiable
 setlocal nrformats=octal,hex
 setlocal nonumber
 setlocal numberwidth=4
@@ -85,10 +85,10 @@ setlocal spellfile=
 setlocal spelllang=en
 setlocal statusline=
 setlocal suffixesadd=
-setlocal swapfile
+setlocal noswapfile
 setlocal synmaxcol=3000
-if &syntax != 'sh'
-setlocal syntax=sh
+if &syntax != 'diff'
+setlocal syntax=diff
 endif
 setlocal tabstop=2
 setlocal tags=~/Archivio/Sviluppo/iptc2xml/.git/sh.tags,~/Archivio/Sviluppo/iptc2xml/.git/tags,./tags,./TAGS,tags,TAGS
@@ -97,25 +97,13 @@ setlocal thesaurus=
 setlocal undofile
 setlocal nowinfixheight
 setlocal nowinfixwidth
-setlocal wrap
+setlocal nowrap
 setlocal wrapmargin=0
-silent! normal! zE
-4,143fold
-146,149fold
-163,168fold
-183,183fold
-180,183fold
-163
-normal zo
-180
-normal zo
-183
-normal zo
-let s:l = 185 - ((41 * winheight(0) + 27) / 55)
+let s:l = 1 - ((0 * winheight(0) + 27) / 54)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-185
+1
 normal! 0
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost

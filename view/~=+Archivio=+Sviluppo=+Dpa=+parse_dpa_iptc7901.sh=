@@ -114,7 +114,7 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 209
-normal! 046l
+normal! 043l
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

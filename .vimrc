@@ -45,8 +45,16 @@ autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 "autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
+"Support 256 color terminal
+set t_Co=256
+
+"colorscheme
+colorscheme inkpot
+
 ""improve autocomplete menu color
-highlight Pmenu ctermbg=238 gui=bold
+"highlight Pmenu ctermbg=238 ctermfg= gui=bold
+"highlight Pmenu ctermfg=1 ctermbg=4 guibg=grey30 gui=bold
+"highlight PmenuSel ctermfg=4 ctermbg=1 gui=bold
 
 "Automatically save Foldings
 au BufWinLeave * silent! mkview
@@ -57,4 +65,3 @@ set undofile                " Save undo's after file closes
 set undodir=$HOME/.vim/undo " where to save undo histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
-
