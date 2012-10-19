@@ -4,15 +4,15 @@ setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
 setlocal nobinary
-setlocal bufhidden=
+setlocal bufhidden=wipe
 setlocal buflisted
-setlocal buftype=
+setlocal buftype=nofile
 setlocal nocindent
 setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal comments=
 setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
@@ -43,7 +43,7 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=tcq
+setlocal formatoptions=nroql2
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal grepprg=
 setlocal iminsert=0
@@ -53,7 +53,7 @@ setlocal includeexpr=
 setlocal indentexpr=
 setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
 setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
+setlocal iskeyword=@,48-57,_,192-255,*,/
 setlocal keywordprg=
 setlocal nolinebreak
 setlocal nolisp
@@ -61,7 +61,7 @@ setlocal nolist
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
 setlocal nomodeline
-setlocal modifiable
+setlocal nomodifiable
 setlocal nrformats=octal,hex
 setlocal nonumber
 setlocal numberwidth=4
@@ -70,7 +70,7 @@ setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
-setlocal noreadonly
+setlocal readonly
 setlocal norelativenumber
 setlocal norightleft
 setlocal rightleftcmd=search
@@ -99,13 +99,13 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 169 - ((0 * winheight(0) + 22) / 45)
+let s:l = 1 - ((0 * winheight(0) + 10) / 21)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-169
-normal! 0
+1
+normal! 01l
+lcd ~/Archivio/Sviluppo/Web/itabia.it
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

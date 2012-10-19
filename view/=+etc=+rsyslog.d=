@@ -1,11 +1,24 @@
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 argglobal
+let s:cpo_save=&cpo
+set cpo&vim
+nmap <buffer>  <Plug>NetrwHideEdit
+nmap <buffer>  <Plug>NetrwRefresh
+nnoremap <buffer> <silent> C :let g:netrw_chgwin= winnr()
+nnoremap <buffer> <silent> c :exe "keepjumps lcd ".fnameescape(b:netrw_curdir)
+nnoremap <buffer> <F1> :he netrw-quickhelp
+imap <buffer>  <Plug>NetrwHideEdit
+imap <buffer>  <Plug>NetrwRefresh
+inoremap <buffer> <silent> C :let g:netrw_chgwin= winnr()
+inoremap <buffer> <silent> c :exe "keepjumps lcd ".fnameescape(b:netrw_curdir)
+let &cpo=s:cpo_save
+unlet s:cpo_save
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
 setlocal nobinary
 setlocal bufhidden=
-setlocal buflisted
+setlocal nobuflisted
 setlocal buftype=
 setlocal nocindent
 setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
@@ -22,15 +35,15 @@ setlocal nocopyindent
 setlocal cryptmethod=
 setlocal nocursorbind
 setlocal nocursorcolumn
-setlocal nocursorline
+setlocal cursorline
 setlocal define=
 setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal noexpandtab
-if &filetype != ''
-setlocal filetype=
+if &filetype != 'netrw'
+setlocal filetype=netrw
 endif
 setlocal foldcolumn=0
 setlocal foldenable
@@ -61,7 +74,7 @@ setlocal nolist
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
 setlocal nomodeline
-setlocal modifiable
+setlocal nomodifiable
 setlocal nrformats=octal,hex
 setlocal nonumber
 setlocal numberwidth=4
@@ -70,7 +83,7 @@ setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
-setlocal noreadonly
+setlocal readonly
 setlocal norelativenumber
 setlocal norightleft
 setlocal rightleftcmd=search
@@ -87,8 +100,8 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != ''
-setlocal syntax=
+if &syntax != 'netrw'
+setlocal syntax=netrw
 endif
 setlocal tabstop=2
 setlocal tags=
@@ -97,15 +110,16 @@ setlocal thesaurus=
 setlocal undofile
 setlocal nowinfixheight
 setlocal nowinfixwidth
-setlocal wrap
+setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 169 - ((0 * winheight(0) + 22) / 45)
+let s:l = 8 - ((7 * winheight(0) + 21) / 43)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-169
+8
 normal! 0
+lcd ~/Archivio/Sviluppo/Web/itabia.it
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :
